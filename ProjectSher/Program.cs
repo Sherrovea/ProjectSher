@@ -11,7 +11,16 @@ void ExibirLogoDaMarca()
 
     Console.WriteLine(mensagemDeBoasVindas);
 }
-
-
+//Essa função exibe a lista de opções 
+void ExibirOpcoesDoMenu()
+{
+    Console.WriteLine("\nCadastrar aluno");
+    Console.WriteLine("Lista de alunos cadastrados: ");
+    Console.WriteLine("Lista de alunos pagantes e não pagantes: ");
+    Console.WriteLine("Consultar aluno");
+    Console.WriteLine("Digite Esc para sair");
+}
 
 ExibirLogoDaMarca();
+ExibirOpcoesDoMenu();
+
