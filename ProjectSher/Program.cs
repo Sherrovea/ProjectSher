@@ -21,6 +21,12 @@ void ExibirOpcoesDoMenu()
     Console.WriteLine("Digite Esc para sair");
 }
 
+void CadastrarAlunos()
+    {
+    Console.WriteLine();
+    }
+
+CadastrarAlunos();
 ExibirLogoDaMarca();
 ExibirOpcoesDoMenu();
 
