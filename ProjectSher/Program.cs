@@ -4,7 +4,8 @@ using ProjectSher;
 using System;
 using System.Collections.Generic;
 
-
+var mensagemDeBoasVindas = "\nSejá bem vindo a minha CrossSher";
+var listaDeAlunos = new List<Aluno>();
 
 //Essa função exibe o logo e uma mensagem de boas vindas no console
 void ExibirLogoDaMarca()
@@ -29,35 +30,35 @@ void ExibirOpcoesDoMenu()
 //Função para cadastrar alunos
 void CadastrarAlunos()
     {
-    Console.WriteLine("/nCadastro de Aluno");
+    Console.WriteLine("\nCadastro de Aluno");
 
-    Console.WriteLine("Nome do Aluno: ");
+    Console.Write("Nome do Aluno: ");
     string nome = Console.ReadLine()!;
 
     Console.Write("Idade do Aluno: ");
     int idade = int.Parse(Console.ReadLine()!);
 
-    Console.WriteLine("Altura do Aluno: ");
+    Console.Write("Altura do Aluno: ");
     decimal altura = decimal.Parse(Console.ReadLine()!);
 
-    Console.WriteLine("Peso do Aluno: ");
+    Console.Write("Peso do Aluno: ");
     decimal peso = decimal.Parse(Console.ReadLine()!);
 
-    Console.WriteLine("CPF do Aluno: ");
+    Console.Write("CPF do Aluno: ");
     string cpf = Console.ReadLine()!;    
 
-    Console.WriteLine("O Aluno é pagante? (s/n): ");
+    Console.Write("O Aluno é pagante? (s/n): ");
     bool estaPagando = (Console.ReadLine()!.ToLower() == "s");
     
     Aluno novoAluno =  new Aluno(nome, idade, altura, peso, cpf, estaPagando);
     listaDeAlunos.Add(novoAluno);
 
-    Console.WriteLine("/nAluno {nome} cadastrado com sucesso!/n");
+    Console.WriteLine($"\nAluno {nome} cadastrado com sucesso!/n");
     }
 
 void ListarAlunos()
 {
-    Console.WriteLine("/nLista de alunos cadastrados: ");
+    Console.WriteLine("\nLista de alunos cadastrados: ");
 
     if (listaDeAlunos.Count == 0)
     {
@@ -71,28 +72,36 @@ void ListarAlunos()
         }
 
     }
-    ExibirLogoDaMarca();
+
+    Console.ReadKey();
+}
+
+void Menu()
+{
+   
     while (true)
     {
+        Console.Clear();
+        ExibirLogoDaMarca();
+        ExibirOpcoesDoMenu();
         ConsoleKeyInfo tecla = Console.ReadKey();
 
-        if(tecla.Key == ConsoleKey.Escape)
+        if (tecla.Key == ConsoleKey.Escape)
         {
             break;
         }
-        else if(tecla.KeyChar == '1')
+        else if (tecla.KeyChar == '1')
         {
             CadastrarAlunos();
         }
         else if (tecla.KeyChar == '2')
-    {
+        {
             ListarAlunos();
         }
     }
-
-    ListarAlunos();
-CadastrarAlunos();
-ExibirLogoDaMarca();
-ExibirOpcoesDoMenu();
 }
+
+
+//Iniciar programa
+Menu();
 
